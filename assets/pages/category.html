@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang category</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <ul id="product_ul">
+        <!-- <ul>
+            <li>
+                <div>Laptop 1</div>
+                <div>1</div>
+            </li>
+        </ul> -->
+    </ul>
+
+
+    <script>
+        //========================Convert VND========================================================
+        //hàm convert tiền tệ
+        const VND = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        });
+
+
+        /* Lấy query prams từ url */
+        let url = new URL(window.location.href);
+        let queryParams = new URLSearchParams(url.search);
+        let category_id = queryParams.get("category_id");
+        console.log(category_id)
+
+        function renderTableData(productList) {
+            let tableDataString = ``;
+
+            
+            for (let i = 0; i < productList.length; i++) {
+                if (productList[i].category_id == category_id) {
+
+                    tableDataString += `
+                        <li>
+                            <div class="product-card">
+
+                                <span class="card-saleoff">${productList[i].sale}</span> 
+                                <span class="card-category_id">${productList[i].category_id}</span>
+
+                                <div class="card-banner img-holder" style="--width: 384; --height: 480;">
+                                
+                                <img src="${productList[i].avatar}" width="384" height="480" loading="lazy" alt="Black Night" class="img-cover">
+                        
+                                <div class="card-action">
+
+                                    <button class="action-btn" aria-label="quick view" title="Xem nhanh">
+                                    <ion-icon name="eye-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+
+                                    <button class="action-btn" aria-label="add to wishlist" title="Thêm vào Wishlist">
+                                    <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+
+                                    <button class="action-btn" aria-label="compare" title="So sánh">
+                                    <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+
+                                    <button onclick="buyItem(${productList[i].id})" class="action-btn" aria-label="add to cart" title="Thêm vào giỏ hàng">
+                                    <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+
+                                </div>
+                                </div>
+
+                                <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">${productList[i].name}</a>
+                                </h3>
+
+                                <data class="card-price" value="150">${VND.format(productList[i].price)}</data>
+
+                                <div class="rating">
+
+                                </div>
+
+                                </div>
+
+                            </div>
+                        </li> 
+                    `
+                }
+            }
+
+            document.getElementById("product_ul").innerHTML = tableDataString;
+        }
+
+        renderTableData(JSON.parse(localStorage.getItem("products")));
+    </script>
+</body>
+
+</html>

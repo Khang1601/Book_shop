@@ -1,0 +1,234 @@
+:root {
+    --maximum-blue-green: rgb(102, 197, 204);
+    --maximum-blue-dark: #00001E;
+    --white-1: rgb(255, 255, 255);
+    --fs-7: 1.3rem;
+    --fw-500: 500;
+    --ff-work-sans: 'Work Sans', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--ff-work-sans);
+}
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content:center;
+    background-image: url(../images/section-bg.jpg);
+}
+.form-login{
+    width: 360px;
+    min-height: 100px;
+    padding: 32px 24px;
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    margin: 24px;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, .1);
+
+    outline: double 10px var(--maximum-blue-green);
+}
+
+.form-login .heading {
+    font-size: 2rem;
+}
+
+.form-login .desc {
+    text-align: center;
+    color: #636d77;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    line-height: 2.4rem;
+    margin-top: 16px;
+    font-weight: 300;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: column;
+}
+
+.form-label,
+.form-message {
+    text-align: left;
+}
+
+.form-label {
+    font-weight: 700;
+    padding-bottom: 6px;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+
+.form-input {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.form-input:hover {
+    border-color: #1dbfaf;
+}
+
+.form-submit {
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    max-width: max-content;
+    color: var(--white-1);
+    border: 3px solid var(--maximum-blue-green);
+    background-color: var(--maximum-blue-green);
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form-submit:active {
+    transform: translateY(5px);
+    box-shadow: red;
+}
+
+.form-submit:is(:hover, :focus) {
+    background-color: var(--maximum-blue-dark);
+    border: 3px solid var(--maximum-blue-green);
+    color: var(--maximum-blue-green);
+}
+
+.form-submit:hover {
+    background-color: var(--maximum-blue-dark);
+    border: 3px solid var(--maximum-blue-green);
+    color: var(--maximum-blue-green);
+}
+
+/* ====================== Toast message ========================= */
+
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    /* số to vì để ko bị thằng khác đè lên */
+    z-index: 999999;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 20px 0;
+    min-width: 400px;
+    max-width: 450px;
+    border-left: 4px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    /* trượt lên */
+    transition: all linear 0.3s;
+    
+    /* 
+    animation: slideInLeft ease 0.3s, fadeOut linear 1s 3s forwards;
+        animation-name -- fadeOut
+        animation-timing-function -- linear
+        animation-duration -- 1s
+        animation-delay -- 3s
+        animation-fill-mode -- forwards dừng luôn
+    */
+}
+
+/* =================animation================== */
+/* xuất hiện ---> trượt từ góc trái */
+@keyframes slideInLeft {
+    /* bắt đầu */
+    from { 
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    /* đến */
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* biến mất ---> mờ đi */
+@keyframes fadeOut {
+    /* đến */
+    to {
+        opacity: 0;
+    }
+}
+
+.toast--success {
+    border-color: #47d864;
+}
+
+.toast--success .toast__icon {
+    color: #47d864;
+}
+
+.toast--info {
+    border-color: #2f86eb;
+}
+
+.toast--info .toast__icon {
+    color: #2f86eb;
+}
+
+.toast--warning {
+    border-color: #ffc021;
+}
+
+.toast--warning .toast__icon {
+    color: #ffc021;
+}
+
+.toast--error {
+    border-color: #ff623d;
+}
+
+.toast--error .toast__icon {
+    color: #ff623d;
+}
+
+.toast+.toast {
+    margin-top: 24px;
+}
+
+.toast__icon {
+    font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+    padding: 0 16px;
+}
+
+.toast__body {
+    flex-grow: 1;
+}
+
+.toast__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toast__msg {
+    font-size: 14px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+.toast__close {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}

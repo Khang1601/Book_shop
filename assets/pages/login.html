@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đăng nhập</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/login.css">
+    <!-- link favicon -->
+    <link rel="shortcut icon" href="../favicon/book-favicon.png" type="image/x-icon">
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div id="toast"></div>
+
+        <form class="form-login" onsubmit="login(event)">
+            <h3 class="heading">Đăng nhập</h3>
+            <p class="desc">Cùng nhau mua sắm sách tại Booken ❤️</p>
+
+            <div class="form-group">
+                <label for="" class="form-label">Email:</label>
+                <input name="email" type="text" class="form-input" placeholder="VD: email@domain.com">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Mật khẩu:</label>
+                <input name="password" type="password" class="form-input" placeholder="Nhập mật khẩu">
+                <span class="form-message"></span>
+            </div>
+
+            <button type="submit" class="form-submit">Đăng nhập</button><br>
+            <span>Bạn chưa có tài khoản?</span>
+            <a href="./register.html">Đăng ký</a>
+            <i class="fa-solid fa-user-plus"></i>
+        </form>
+    </div>
+
+
+
+    <script>
+        // =======================Toast message============================
+        function showSuccessToast() {
+            toast({
+                title: "Thành công!",
+                message: "Bạn đã đăng nhập thành công tài khoản tại Booken.",
+                type: "success",
+                duration: 5000
+            });
+        }
+        function showErrorToast_userwrong() {
+            toast({
+                title: "Thất bại!",
+                message: "Người dùng không tồn tại.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_passwordwrong() {
+            toast({
+                title: "Thất bại!",
+                message: "Mật khẩu không chính xác.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_sever() {
+            toast({
+                title: "Thất bại!",
+                message: "Sever bận.",
+                type: "error",
+                duration: 5000
+            });
+        }
+    </script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

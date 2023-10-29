@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đăng ký</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/register.css">
+    <!-- link favicon -->
+    <link rel="shortcut icon" href="../favicon/book-favicon.png" type="image/x-icon">
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="toast"></div>
+
+        <form class="form-register" onsubmit="register(event)">
+            <h3 class="heading">Đăng ký thành viên</h3>
+            <p class="desc">Cùng nhau mua sắm sách tại Booken ❤️</p>
+
+            <div class="form-group">
+                <label for="" class="form-label">Email:</label>
+                <input name="email" type="text" class="form-input" placeholder="VD: email@domain.com">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Mật khẩu:</label>
+                <input name="password" type="password" class="form-input" placeholder="Nhập mật khẩu">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Nhập lại mật khẩu:</label>
+                <input name="password_confirm" type="password" class="form-input" placeholder="Nhập lại mật khẩu">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Số điện thoại:</label>
+                <input name="phoneNumber" type="text" class="form-input" placeholder="VD: 01234567890">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Địa chỉ:</label>
+                <input name="address" type="text" class="form-input" placeholder="Nhập địa chỉ">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Avatar:</label>
+                <input name="avatar" type="text" class="form-input" placeholder="Nhập avatar">
+                <span class="form-message"></span>
+            </div>
+
+            <button type="submit" class="form-submit">Đăng ký</button><br>
+
+            <span>Bạn đã có tài khoản?</span>
+            <a href="./login.html">Đăng nhập</a> 
+            <i class="fa-solid fa-user-check"></i>
+        </form>
+    </div>
+
+
+
+    <script>
+
+// =======================Toast message============================
+        function showSuccessToast() {
+            toast({
+                title: "Thành công!",
+                message: "Bạn đã đăng ký thành công tài khoản tại Booken.",
+                type: "success",
+                duration: 5000
+            });
+        }
+
+        function showErrorToast_email() {
+            toast({
+                title: "Thất bại!",
+                message: "Email không đúng định dạng.",
+                type: "error",
+                duration: 5000
+            });
+        }
+
+        function showErrorToast_email_noticlude_admin() {
+            toast({
+                title: "Thất bại!",
+                message: "Email không được chứa từ admin.",
+                type: "error",
+                duration: 5000
+            });
+        }
+
+        function showErrorToast_emailexist() {
+            toast({
+                title: "Thất bại!",
+                message: "Email đã tồn tại.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_password() {
+            toast({
+                title: "Thất bại!",
+                message: "Mật khẩu không đúng định dạng.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_passwordwrong() {
+            toast({
+                title: "Thất bại!",
+                message: "Mật khẩu nhập lại không chính xác.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_phonenumber() {
+            toast({
+                title: "Thất bại!",
+                message: "Số điện thoại không đúng định dạng.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_address() {
+            toast({
+                title: "Thất bại!",
+                message: "Địa chỉ không đúng định dạng.",
+                type: "error",
+                duration: 5000
+            });
+        }
+        function showErrorToast_avatar() {
+            toast({
+                title: "Thất bại!",
+                message: "Avatar không đúng định dạng.",
+                type: "error",
+                duration: 5000
+            });
+        }
+    </script>
+    <script src="../js/register.js"></script>
+</body>
+
+</html>

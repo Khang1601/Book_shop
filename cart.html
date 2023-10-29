@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang giỏ hàng</title> 
+  <!-- 
+    -icon
+  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- 
+    - css link
+  -->
+  <link rel="stylesheet" href="./assets/css/cart.css">
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/favicon/book-favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="toast"></div>
+
+  <div class="container">
+    <button onclick="window.location.href='./index.html'" class="header-btn" title="User">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Quay về trang chủ</span>
+    </button>
+
+
+
+    <!-- Product Render -->
+    <table class="table" border="1">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên sản phẩm</th>
+          <th onclick="sortByPrice()">Đơn giá</th>
+          <th>Hình ảnh</th>
+          <th>Thể loại</th>
+          <th>Số lượng</th>
+          <th>Giá tiền</th>
+          <th>Xóa SP</th>
+        </tr>
+      </thead>
+      <tbody id="table_data">
+
+        <!-- hiển thị danh sách sp ở đây -->
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+  <script src="./assets/js/cart.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
